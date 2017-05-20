@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="spotify_playlist" type="synapse/template">
+  <subComponents>
+    	<component name="createPlaylist">
+      <file>createPlaylist.xml</file>
+      <description>Create new playlist for given user ID</description>
+    </component>
+    	<component name="getPlaylists">
+      <file>getPlaylists.xml</file>
+      <description>Get logged users playlist</description>
+    </component>
+    	<component name="getPlaylist">
+      <file>getPlaylist.xml</file>
+      <description>Get specific playlist for given user and playlist ID</description>
+    </component>
+    </subComponents>
+</component>

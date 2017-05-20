@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="createPlaylist" xmlns="http://ws.apache.org/ns/synapse">
+	<parameter name="userID" description="The userID" />
+	<sequence>
+		<property expression="$func:userID" name="uri.var.userID" />
+		<property name="Accept-Encoding" action="remove" scope="transport"/>
+		<property name="messageType" scope="axis2" value="application/json"/>
+		<payloadFactory media-type="json">
+			<format>
+				{
+					"name":"playlist_1",
+					"public":false,
+					"description":"my playlist 1"
+				}
+			</format>
+		</payloadFactory>
+		<call>
+			<endpoint>
+				<http method="post" uri-template=" https://api.spotify.com/v1/users/{uri.var.userID}/playlists" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

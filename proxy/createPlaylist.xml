@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="spotify_createPlaylist" transports="https,http" statistics="disable" trace="disable" startOnLoad="true">
+	<target>
+		<inSequence>
+			<property name="userID" expression="json-eval($.userID)" />
+			<property name="accessToken" expression="json-eval($.accessToken)" />
+			<spotify.init>
+				<accessToken>{$ctx:accessToken}</accessToken>
+			</spotify.init>
+			<spotify.createPlaylist>
+				<userID>{$ctx:userID}</userID>
+			</spotify.createPlaylist>
+			<respond />
+		</inSequence>
+		<outSequence>
+			<log />
+			<send />
+		</outSequence>
+	</target>
+	<description />
+</proxy>  

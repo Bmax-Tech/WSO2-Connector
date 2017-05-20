@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="spotify_search" type="synapse/template">
+  <subComponents>
+    	<component name="getSearchArtist">
+      <file>getSearchArtist.xml</file>
+      <description>Get Artist for given name</description>
+    </component>
+    </subComponents>
+</component>

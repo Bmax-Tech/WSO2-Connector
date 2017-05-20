@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="spotify_releases" type="synapse/template">
+  <subComponents>
+    	<component name="getNewReleases">
+      <file>getNewReleases.xml</file>
+      <description>View New Releases</description>
+    </component>
+    </subComponents>
+</component>

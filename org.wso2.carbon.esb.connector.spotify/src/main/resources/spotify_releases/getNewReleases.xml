@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="getNewReleases" xmlns="http://ws.apache.org/ns/synapse">
+	<sequence>
+		<property name="Accept-Encoding" action="remove" scope="transport"/>
+		<property name="messageType" scope="axis2" value="application/json"/>
+		<call>
+			<endpoint>
+				<http method="get" uri-template="https://api.spotify.com/v1/browse/new-releases" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

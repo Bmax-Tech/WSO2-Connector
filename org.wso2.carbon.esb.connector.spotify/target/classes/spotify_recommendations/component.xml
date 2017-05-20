@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="spotify_recommendations" type="synapse/template">
+  <subComponents>
+    	<component name="getRecommendations">
+      <file>getRecommendations.xml</file>
+      <description>Create new playlist for given user ID</description>
+    </component>
+    </subComponents>
+</component>

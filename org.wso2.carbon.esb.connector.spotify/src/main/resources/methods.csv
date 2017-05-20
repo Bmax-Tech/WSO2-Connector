@@ -1,0 +1,7 @@
+spotify_config,init,accessToken,Configuration file
+spotify_releases,getNewReleases,,View New Releases
+spotify_search,getSearchArtist,query,Get Artist for given name
+spotify_recommendations,getRecommendations,,Create new playlist for given user ID
+spotify_playlist,createPlaylist,userID,Create new playlist for given user ID
+spotify_playlist,getPlaylists,,Get logged users playlist
+spotify_playlist,getPlaylist,userID:playlistID,Get specific playlist for given user and playlist ID

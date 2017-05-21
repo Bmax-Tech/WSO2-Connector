@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template name="getPlaylistTracks" xmlns="http://ws.apache.org/ns/synapse">
+	<parameter name="userID" description="The userID" />
+	<parameter name="playlistID" description="The playlistID" />
+	<sequence>
+		<property expression="$func:userID" name="uri.var.userID" />
+		<property expression="$func:playlistID" name="uri.var.playlistID" />
+		<property name="Accept-Encoding" action="remove" scope="transport"/>
+		<property name="messageType" scope="axis2" value="application/json"/>
+		<call>
+			<endpoint>
+				<http method="get" uri-template="https://api.spotify.com/v1/users/{uri.var.userID}/playlists/{uri.var.playlistID}/tracks" />
+			</endpoint>
+		</call>
+	</sequence>
+</template>

@@ -21,7 +21,6 @@
         <dependency component="spotify_config" />
         <dependency component="spotify_releases" />
         <dependency component="spotify_search" />
-        <dependency component="spotify_recommendations" />
         <dependency component="spotify_playlist" />
         <description>Spotify Connector</description>
     </component>

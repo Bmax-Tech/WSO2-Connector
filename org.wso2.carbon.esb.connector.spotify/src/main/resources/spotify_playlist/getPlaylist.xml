@@ -9,7 +9,7 @@
 		<property name="messageType" scope="axis2" value="application/json"/>
 		<call>
 			<endpoint>
-				<http method="get" uri-template="https://api.spotify.com//v1/users/{uri.var.userID}/playlists/{uri.var.playlistID}" />
+				<http method="get" uri-template="https://api.spotify.com/v1/users/{uri.var.userID}/playlists/{uri.var.playlistID}" />
 			</endpoint>
 		</call>
 	</sequence>

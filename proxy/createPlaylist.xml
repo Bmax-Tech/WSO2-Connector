@@ -3,12 +3,18 @@
 	<target>
 		<inSequence>
 			<property name="userID" expression="json-eval($.userID)" />
+			<property name="name" expression="json-eval($.name)" />
+			<property name="public" expression="json-eval($.public)" />
+			<property name="description" expression="json-eval($.description)" />
 			<property name="accessToken" expression="json-eval($.accessToken)" />
 			<spotify.init>
 				<accessToken>{$ctx:accessToken}</accessToken>
 			</spotify.init>
 			<spotify.createPlaylist>
 				<userID>{$ctx:userID}</userID>
+				<name>{$ctx:name}</name>
+				<public>{$ctx:public}</public>
+				<description>{$ctx:description}</description>
 			</spotify.createPlaylist>
 			<respond />
 		</inSequence>

@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <template name="createPlaylist" xmlns="http://ws.apache.org/ns/synapse">
 	<parameter name="userID" description="The userID" />
+	<parameter name="name" description="The playlist name" />
+	<parameter name="public" description="If public is true the playlist will be public, if false it will be private" />
+	<parameter name="description" description="Description about the playlist" />
 	<sequence>
 		<property expression="$func:userID" name="uri.var.userID" />
-		<property name="Accept-Encoding" action="remove" scope="transport"/>
-		<property name="messageType" scope="axis2" value="application/json"/>
+		<property expression="$func:name" name="uri.var.name" />
+		<property expression="$func:public" name="uri.var.public" />
+		<property expression="$func:description" name="uri.var.description" />		
 		<payloadFactory media-type="json">
 			<format>
 				{
-					"name":"playlist_1",
-					"public":false,
-					"description":"my playlist 1"
+				"name":"$1",
+				"public":"$2",
+				"description":"$3"
 				}
 			</format>
+			<args>
+				<arg expression="get-property('uri.var.name')"/>
+				<arg expression="get-property('uri.var.public')"/>
+				<arg expression="get-property('uri.var.description')"/>
+			</args>
 		</payloadFactory>
-		<call>
-			<endpoint>
-				<http method="post" uri-template=" https://api.spotify.com/v1/users/{uri.var.userID}/playlists" />
-			</endpoint>
-		</call>
+		<property name="messageType" value="application/json" scope="axis2"/>
+        <header name="Content-Type" value="application/json" scope="transport"/>
+        <call>
+            <endpoint>
+                <http method="post" uri-template="https://api.spotify.com/v1/users/{uri.var.userID}/playlists"/>
+            </endpoint>
+        </call>
 	</sequence>
 </template>
